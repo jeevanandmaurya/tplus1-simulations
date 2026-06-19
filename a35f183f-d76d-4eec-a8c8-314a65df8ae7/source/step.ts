@@ -10,8 +10,8 @@ function step(state, config, dt) {
   if (state.t % Math.round(spawnRate) === 0 && state.globals.ballCount < 60) {
     const id = "ball_" + state.t;
     const color = COLORS[state.globals.ballCount % COLORS.length];
-    const x = (Math.random() - 0.5) * 14;
-    const z = (Math.random() - 0.5) * 14;
+    const x = (Math.random() - 0.5) * 10;
+    const z = (Math.random() - 0.5) * 10;
 
     state.entities.push({
       id,
