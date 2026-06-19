@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "id": "2d-platformer-sandbox-GHBEAq",
+    "title": "2D Platformer Sandbox",
+    "description": "Use WASD to move and SPACE to jump! A multi-level 2D platformer powered entirely by native ECS physics.",
+    "author": "@jeevanandmaurya",
+    "substrate": "particles-bodies",
+    "tags": [
+      "game",
+      "2d",
+      "platformer",
+      "physics",
+      "interactive"
+    ],
+    "created": "2026-06-17",
+    "forked_from": null,
+    "visibility": "public"
+  },
+  "engine": {
+    "type": "rapier2d",
+    "source_entry": "source/step.ts",
+    "source_lang": "javascript"
+  },
+  "renderer": {
+    "type": "three",
+    "dimensions": 2,
+    "bounds": [
+      20,
+      20
+    ],
+    "background": "#87CEEB",
+    "camera": {
+      "position": [
+        0,
+        0,
+        30
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "fov": 45
+    }
+  },
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {},
+  "assets": {
+    "audio": {
+      "jump": "synth:jump",
+      "fall": "synth:fall"
+    }
+  },
+  "parameters_ui": [],
+  "ui": {
+    "panels": [
+      {
+        "globalKey": "score",
+        "label": "SCORE",
+        "type": "stat",
+        "position": "top-right"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "t": 0,
+  "globals": {
+    "score": 0,
+    "current_level": 0,
+    "has_bounds": false
+  },
+  "entities": [
+    {
+      "id": "player",
+      "type": "player",
+      "position": [0, 5, 0],
+      "properties": {
+        "mass": 1,
+        "bodyType": "dynamic",
+        "fixedRotation": false,
+        "behaviors": [
+          { "type": "character_controller", "movement_force": 25, "jump_impulse": 12, "audio_jump": "jump" },
+          { "type": "camera_target", "offset": [0, 0, 45] },
+          { "type": "boundary_reset", "axis": "y", "threshold": -20, "direction": "below", "reset_position": [0, 5, 0], "audio_trigger": "fall" },
+          { "type": "telemetry", "metrics": ["distance_x"], "score_key": "score" }
+        ]
+      },
+      "visual": {
+        "shape": "circle",
+        "color": "#ef4444",
+        "size": 2.5
+      }
+    }
+  ]
+}
