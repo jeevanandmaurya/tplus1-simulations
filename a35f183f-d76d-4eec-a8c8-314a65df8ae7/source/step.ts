@@ -3,11 +3,10 @@ const COLORS = [
   "#22d3ee", "#818cf8", "#e879f9", "#f472b6"
 ];
 
-export function step(state, config, dt) {
+function step(state, config, dt) {
   const spawnRate = config.parameters?.spawnRate ?? 40;
   const ballSize = config.parameters?.ballSize ?? 0.6;
 
-  // Spawn a new ball periodically
   if (state.t % Math.round(spawnRate) === 0 && state.globals.ballCount < 60) {
     const id = "ball_" + state.t;
     const color = COLORS[state.globals.ballCount % COLORS.length];
