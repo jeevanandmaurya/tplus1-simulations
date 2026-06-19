@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "title": "Ball Dropping On Floor",
+    "tags": [
+      "rapier3d"
+    ]
+  },
+  "simulation": {
+    "engine": "rapier3d",
+    "dt": 0.016,
+    "constraints": {
+      "bounds": 10
+    }
+  },
+  "parameters": []
+}
