@@ -1,0 +1,25 @@
+{
+  "t": 0,
+  "entities": [
+    {
+      "id": "ground",
+      "type": "rigid_body",
+      "position": [0, -51, 0],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, 0, 1],
+      "properties": {
+        "bodyType": "fixed",
+        "mass": 0,
+        "restitution": 0.5,
+        "friction": 0.8
+      },
+      "visual": {
+        "shape": "box",
+        "color": "#1f2937",
+        "size": 100,
+        "opacity": 1
+      }
+    }
+  ],
+  "globals": {}
+}
