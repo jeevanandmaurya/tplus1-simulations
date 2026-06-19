@@ -1,0 +1,55 @@
+{
+  "t": 0,
+  "globals": {},
+  "entities": [
+    {
+      "id": "player",
+      "type": "player",
+      "position": [0, 5, 0],
+      "properties": {
+        "mass": 5,
+        "bodyType": "dynamic",
+        "restitution": 0.1,
+        "angularDamping": 1.5,
+        "linearDamping": 1.5,
+        "behaviors": [
+          {
+            "type": "character_controller",
+            "movement_force": 30,
+            "jump_impulse": 75,
+            "audio_jump": "jump"
+          },
+          {
+            "type": "camera_target",
+            "offset": [0, 5, 15]
+          },
+          {
+            "type": "boundary_reset",
+            "axis": "y",
+            "threshold": -30,
+            "direction": "below",
+            "reset_position": [0, 5, 0],
+            "audio_trigger": "fall"
+          },
+          {
+            "type": "telemetry",
+            "metrics": ["kinetic_energy", "distance_z"],
+            "score_key": "score"
+          }
+        ]
+      },
+      "visual": {
+        "shape": "sphere",
+        "color": "#F43F5E",
+        "size": 1.5
+      }
+    },
+    {
+      "id": "start_platform",
+      "type": "ground",
+      "position": [0, -2, 0],
+      "properties": { "mass": 0, "bodyType": "fixed" },
+      "visual": { "shape": "box", "color": "#475569", "size": [16, 1, 16] }
+    }
+  ]
+}
