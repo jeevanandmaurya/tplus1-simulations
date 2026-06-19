@@ -1,17 +1,69 @@
 {
-  "version": "1.0",
   "metadata": {
     "title": "Bouncing Balls Collision",
-    "tags": [
-      "rapier3d"
-    ]
+    "tags": ["rapier3d", "physics", "collision"]
   },
-  "engine": {
-    "type": "rapier3d",
-    "source_entry": "source/step.ts"
+  "simulation": {
+    "engine": "rapier3d",
+    "dt": 0.016,
+    "constraints": { "bounds": 20 }
   },
-  "renderer": {
-    "type": "three"
-  },
-  "parameters": []
+  "parameters": [
+    { "key": "gravity", "type": "number", "min": -20, "max": 0, "default": -9.81, "description": "Gravity strength" },
+    { "key": "spawnRate", "type": "number", "min": 10, "max": 120, "default": 40, "description": "Frames between each new ball spawn" },
+    { "key": "ballSize", "type": "number", "min": 0.2, "max": 1.5, "default": 0.6, "description": "Radius of each ball" }
+  ],
+  "initialState": {
+    "t": 0,
+    "entities": [
+      {
+        "id": "floor",
+        "type": "box",
+        "position": [0, -8, 0],
+        "rotation": [0, 0, 0, 1],
+        "scale": [20, 0.5, 20],
+        "color": "#334155",
+        "isStatic": true
+      },
+      {
+        "id": "wall_left",
+        "type": "box",
+        "position": [-10, 4, 0],
+        "rotation": [0, 0, 0, 1],
+        "scale": [0.5, 24, 20],
+        "color": "#1e293b",
+        "isStatic": true
+      },
+      {
+        "id": "wall_right",
+        "type": "box",
+        "position": [10, 4, 0],
+        "rotation": [0, 0, 0, 1],
+        "scale": [0.5, 24, 20],
+        "color": "#1e293b",
+        "isStatic": true
+      },
+      {
+        "id": "wall_front",
+        "type": "box",
+        "position": [0, 4, 10],
+        "rotation": [0, 0, 0, 1],
+        "scale": [20, 24, 0.5],
+        "color": "#1e293b",
+        "isStatic": true
+      },
+      {
+        "id": "wall_back",
+        "type": "box",
+        "position": [0, 4, -10],
+        "rotation": [0, 0, 0, 1],
+        "scale": [20, 24, 0.5],
+        "color": "#1e293b",
+        "isStatic": true
+      }
+    ],
+    "globals": {
+      "ballCount": 0
+    }
+  }
 }
