@@ -1,5 +1,58 @@
 {
   "t": 0,
-  "entities": [],
+  "entities": [
+    {
+      "id": "floor",
+      "position": [
+        0,
+        -1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "visual": {
+        "shape": "box",
+        "color": "#aaaaaa",
+        "size": [
+          20,
+          1,
+          20
+        ]
+      },
+      "physics": {
+        "type": "fixed"
+      }
+    },
+    {
+      "id": "ball",
+      "position": [
+        0,
+        10,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "visual": {
+        "shape": "sphere",
+        "color": "#ff0044",
+        "size": [
+          1,
+          1,
+          1
+        ]
+      },
+      "physics": {
+        "type": "dynamic"
+      }
+    }
+  ],
   "globals": {}
 }
