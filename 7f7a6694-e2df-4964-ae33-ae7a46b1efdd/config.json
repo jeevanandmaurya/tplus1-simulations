@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "id": "demo-procedural-terrain",
+    "title": "Episodic Procedural Waves",
+    "description": "A true procedural episodic simulation! Every 8 seconds, the Javascript custom logic completely rebuilds the 10,000+ vertex Trimesh into a newly shifted sine wave slope, and drops massive physics spheres on top of it using the dynamic physics diffing engine.",
+    "author": "@tplus1",
+    "substrate": "particles-bodies",
+    "tags": [
+      "physics",
+      "3d",
+      "rapier",
+      "trimesh",
+      "procedural",
+      "episodic"
+    ],
+    "created": "2026-06-17T12:15:07.634Z",
+    "forked_from": null,
+    "visibility": "public"
+  },
+  "engine": {
+    "type": "rapier3d",
+    "source_entry": "source/step.ts"
+  },
+  "renderer": {
+    "type": "three",
+    "dimensions": 3,
+    "bounds": [
+      100,
+      100,
+      100
+    ],
+    "background": "#0a0a0a",
+    "camera": {
+      "position": [
+        0,
+        20,
+        40
+      ],
+      "fov": 45
+    },
+    "lights": {
+      "ambient": 0.5,
+      "directional": [
+        {
+          "position": [
+            10,
+            20,
+            10
+          ],
+          "intensity": 2,
+          "castShadow": true
+        }
+      ]
+    }
+  },
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -9.81,
+    "gravity_z": 0
+  },
+  "parameters_ui": []
+}

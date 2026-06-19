@@ -1,0 +1,8 @@
+{
+  "t": 0,
+  "entities": [],
+  "globals": {
+    "cycle": 0,
+    "lastResetT": 0
+  }
+}
