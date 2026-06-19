@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "id": "2d-rigid-body-physics-ojnjVh",
+    "title": "2D Rigid Body Physics",
+    "description": "Full 2D rigid body physics powered by Rapier WASM. Real collision detection, dynamic/static/kinematic bodies, and boundary walls.",
+    "author": "@jeevanandmaurya",
+    "substrate": "particles-bodies",
+    "tags": [
+      "physics",
+      "2d",
+      "rapier",
+      "rigid-bodies"
+    ],
+    "created": "2026-06-17T12:00:00.000Z",
+    "forked_from": null,
+    "visibility": "public"
+  },
+  "engine": {
+    "type": "rapier2d",
+    "source_entry": "source/step.ts"
+  },
+  "renderer": {
+    "type": "three",
+    "dimensions": 2,
+    "bounds": [
+      800,
+      600
+    ],
+    "background": "#0f172a",
+    "camera": {
+      "position": [
+        400,
+        300,
+        800
+      ],
+      "fov": 60,
+      "target": [
+        400,
+        300,
+        0
+      ]
+    },
+    "lights": {
+      "ambient": 0.8,
+      "directional": [
+        {
+          "position": [
+            400,
+            600,
+            400
+          ],
+          "intensity": 2,
+          "castShadow": true
+        }
+      ]
+    }
+  },
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -98.1,
+    "bounds_x": 800,
+    "bounds_y": 600
+  },
+  "parameters_ui": [
+    {
+      "key": "gravity_y",
+      "label": "Gravity Y",
+      "min": -500,
+      "max": 0,
+      "step": 1,
+      "group": "Physics"
+    },
+    {
+      "key": "gravity_x",
+      "label": "Gravity X",
+      "min": -500,
+      "max": 500,
+      "step": 1,
+      "group": "Physics"
+    }
+  ]
+}
