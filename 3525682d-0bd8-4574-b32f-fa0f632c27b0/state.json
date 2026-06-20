@@ -1,0 +1,9 @@
+{
+  "t": 0,
+  "entities": [],
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -9.81,
+    "gravity_z": 0
+  }
+}

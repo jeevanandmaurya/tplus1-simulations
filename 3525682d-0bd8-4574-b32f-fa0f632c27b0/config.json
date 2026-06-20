@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "MCP E2E Test Sim 1781948139314",
+    "substrate": "particles-bodies",
+    "tags": [
+      "rapier3d"
+    ]
+  },
+  "engine": {
+    "type": "rapier3d",
+    "source_entry": "source/step.ts"
+  },
+  "renderer": {
+    "type": "three",
+    "dimensions": 3,
+    "bounds": [
+      60,
+      60,
+      60
+    ],
+    "background": "#0a0a0a"
+  },
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -9.81,
+    "gravity_z": 0
+  },
+  "parameters_ui": [
+    {
+      "key": "gravity_y",
+      "label": "Gravity",
+      "min": -20,
+      "max": 0,
+      "step": 0.1,
+      "group": "Physics"
+    }
+  ]
+}
