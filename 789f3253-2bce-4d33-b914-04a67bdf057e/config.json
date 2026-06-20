@@ -2,16 +2,46 @@
   "version": "1.0",
   "metadata": {
     "title": "Fireworks Explosion",
-    "tags": [
-      "rapier3d"
-    ]
+    "description": "Colourful firework shells launch upward and explode into bursts of glowing particles.",
+    "substrate": "particles-bodies",
+    "tags": ["rapier3d", "physics", "fireworks", "explosion"]
   },
   "engine": {
     "type": "rapier3d",
-    "source_entry": "source/step.ts"
+    "source_entry": "source/step.ts",
+    "custom_logic": "\nif (!state.globals.nextLaunch) state.globals.nextLaunch = 0;\nif (!state.globals.shells) state.globals.shells = {};\n\nconst COLORS = ['#f43f5e','#fb923c','#facc15','#4ade80','#22d3ee','#818cf8','#e879f9','#ffffff'];\nconst launchInterval = config.parameters_ui ? 60 : 60;\n\n// Launch a new shell periodically\nif (state.t >= state.globals.nextLaunch) {\n  const shellId = 'shell_' + state.t;\n  const x = (Math.random() - 0.5) * 20;\n  const z = (Math.random() - 0.5) * 20;\n  const color = COLORS[Math.floor(Math.random() * COLORS.length)];\n  state.entities.push({\n    id: shellId,\n    type: 'rigid_body',\n    position: [x, 0, z],\n    velocity: [\n      (Math.random() - 0.5) * 3,\n      28 + Math.random() * 8,\n      (Math.random() - 0.5) * 3\n    ],\n    rotation: [0, 0, 0, 1],\n    properties: {\n      bodyType: 'dynamic',\n      mass: 0.5,\n      restitution: 0.0,\n      friction: 0.0,\n      linearDamping: 0.05,\n      angularDamping: 0.1\n    },\n    visual: { shape: 'sphere', color: color, size: 0.35, opacity: 1.0 }\n  });\n  state.globals.shells[shellId] = { color: color, exploded: false, launchT: state.t };\n  state.globals.nextLaunch = state.t + 60 + Math.floor(Math.random() * 40);\n}\n\n// Check shells and explode them at peak\nfor (const entity of state.entities) {\n  const meta = state.globals.shells[entity.id];\n  if (!meta || meta.exploded) continue;\n  const age = state.t - meta.launchT;\n  // Explode after ~1.2 seconds (72 frames)\n  if (age >= 72) {\n    meta.exploded = true;\n    // Remove the shell visually by shrinking it\n    entity.visual = { shape: 'sphere', color: meta.color, size: 0.01, opacity: 0 };\n    entity.properties.bodyType = 'static';\n    // Spawn burst particles\n    const count = 40 + Math.floor(Math.random() * 20);\n    for (let i = 0; i < count; i++) {\n      const theta = Math.random() * Math.PI * 2;\n      const phi = Math.acos(2 * Math.random() - 1);\n      const speed = 6 + Math.random() * 8;\n      const vx = speed * Math.sin(phi) * Math.cos(theta);\n      const vy = speed * Math.cos(phi);\n      const vz = speed * Math.sin(phi) * Math.sin(theta);\n      state.entities.push({\n        id: 'spark_' + state.t + '_' + i,\n        type: 'rigid_body',\n        position: [...entity.position],\n        velocity: [vx, vy, vz],\n        rotation: [0, 0, 0, 1],\n        properties: {\n          bodyType: 'dynamic',\n          mass: 0.05,\n          restitution: 0.1,\n          friction: 0.0,\n          linearDamping: 0.6,\n          angularDamping: 0.1\n        },\n        visual: { shape: 'sphere', color: meta.color, size: 0.18, opacity: 0.95 }\n      });\n    }\n  }\n}\n"
   },
   "renderer": {
-    "type": "three"
+    "type": "three",
+    "dimensions": 3,
+    "bounds": [100, 100, 100],
+    "background": "#050510",
+    "camera": {
+      "position": [0, 20, 55],
+      "fov": 55
+    },
+    "lights": {
+      "ambient": 0.3,
+      "directional": [
+        {
+          "position": [10, 30, 10],
+          "intensity": 1.5,
+          "castShadow": false
+        }
+      ]
+    }
   },
-  "parameters": []
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -4.0,
+    "gravity_z": 0
+  },
+  "parameters_ui": [
+    { "key": "gravity_y", "label": "Gravity", "min": -20, "max": 0, "step": 0.1, "group": "Physics" }
+  ]
 }

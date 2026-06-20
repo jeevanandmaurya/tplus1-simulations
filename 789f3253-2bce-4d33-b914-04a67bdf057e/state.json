@@ -1,5 +1,8 @@
 {
   "t": 0,
   "entities": [],
-  "globals": {}
+  "globals": {
+    "nextLaunch": 0,
+    "shells": {}
+  }
 }
