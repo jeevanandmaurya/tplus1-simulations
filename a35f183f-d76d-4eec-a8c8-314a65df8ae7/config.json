@@ -1,23 +1,47 @@
 {
+  "version": "1.0",
   "metadata": {
     "title": "Bouncing Balls Collision",
+    "description": "Colourful physics balls dropping and colliding in real-time using Rapier3D.",
+    "substrate": "particles-bodies",
     "tags": ["rapier3d", "physics", "collision"]
   },
-  "simulation": {
-    "engine": "rapier3d",
-    "dt": 0.016,
-    "constraints": { "bounds": 15 }
+  "engine": {
+    "type": "rapier3d",
+    "source_entry": "source/step.ts",
+    "custom_logic": "\nconst COLORS = ['#f43f5e','#fb923c','#facc15','#4ade80','#22d3ee','#818cf8','#e879f9','#f472b6'];\n\nif (!state.globals.ballCount) state.globals.ballCount = 0;\n\nconst spawnRate = 40;\nconst ballSize = 0.6;\n\nif (state.t % spawnRate === 0 && state.globals.ballCount < 60) {\n  const color = COLORS[state.globals.ballCount % COLORS.length];\n  state.entities.push({\n    id: 'ball_' + state.t,\n    type: 'rigid_body',\n    position: [(Math.random() - 0.5) * 14, 18, (Math.random() - 0.5) * 14],\n    velocity: [(Math.random() - 0.5) * 4, 0, (Math.random() - 0.5) * 4],\n    rotation: [0, 0, 0, 1],\n    properties: {\n      bodyType: 'dynamic',\n      mass: 1,\n      restitution: 0.6,\n      friction: 0.3,\n      linearDamping: 0.02,\n      angularDamping: 0.05\n    },\n    visual: {\n      shape: 'sphere',\n      color: color,\n      size: ballSize,\n      opacity: 1.0\n    }\n  });\n  state.globals.ballCount += 1;\n}\n"
   },
-  "parameters": [
-    { "key": "gravity", "type": "number", "min": -20, "max": 0, "default": -9.81, "description": "Gravity strength" },
-    { "key": "spawnRate", "type": "number", "min": 10, "max": 120, "default": 40, "description": "Frames between each new ball spawn" },
-    { "key": "ballSize", "type": "number", "min": 0.2, "max": 1.5, "default": 0.6, "description": "Radius of each ball" }
-  ],
-  "initialState": {
-    "t": 0,
-    "entities": [],
-    "globals": {
-      "ballCount": 0
+  "renderer": {
+    "type": "three",
+    "dimensions": 3,
+    "bounds": [60, 60, 60],
+    "background": "#0a0a0a",
+    "camera": {
+      "position": [0, 15, 35],
+      "fov": 50
+    },
+    "lights": {
+      "ambient": 0.5,
+      "directional": [
+        {
+          "position": [10, 20, 10],
+          "intensity": 2,
+          "castShadow": true
+        }
+      ]
     }
-  }
+  },
+  "simulation": {
+    "dt": 0.016,
+    "max_steps": null,
+    "initial_state": "state.json"
+  },
+  "globals": {
+    "gravity_x": 0,
+    "gravity_y": -9.81,
+    "gravity_z": 0
+  },
+  "parameters_ui": [
+    { "key": "gravity_y", "label": "Gravity", "min": -20, "max": 0, "step": 0.1, "group": "Physics" }
+  ]
 }
