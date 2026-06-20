@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "Explosion Fireworks",
+    "tags": [
+      "rapier3d"
+    ]
+  },
+  "engine": {
+    "type": "rapier3d",
+    "source_entry": "source/step.ts"
+  },
+  "renderer": {
+    "type": "three"
+  },
+  "parameters": []
+}
