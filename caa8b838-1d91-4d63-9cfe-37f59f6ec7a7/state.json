@@ -1,5 +1,33 @@
 {
   "t": 0,
-  "entities": [],
+  "entities": [
+    {
+      "id": "ground",
+      "type": "rigid_body",
+      "position": [0, -51, 0],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, 0, 1],
+      "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.3, "friction": 0.8 },
+      "visual": { "shape": "box", "color": "#1a2233", "size": 100, "opacity": 1 }
+    },
+    {
+      "id": "ramp1",
+      "type": "rigid_body",
+      "position": [-5, -20, 0],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, 0.2164, 0.9763],
+      "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.2, "friction": 0.45 },
+      "visual": { "shape": "box", "color": "#2a4060", "size": 20, "opacity": 1 }
+    },
+    {
+      "id": "ramp2",
+      "type": "rigid_body",
+      "position": [5, -35, 0],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, -0.2164, 0.9763],
+      "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.2, "friction": 0.45 },
+      "visual": { "shape": "box", "color": "#2a4060", "size": 20, "opacity": 1 }
+    }
+  ],
   "globals": {}
 }
