@@ -11,22 +11,40 @@
       "visual": { "shape": "box", "color": "#1a2233", "size": 100, "opacity": 1 }
     },
     {
+      "id": "wall_front",
+      "type": "rigid_body",
+      "position": [0, 0, 14],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, 0, 1],
+      "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.1, "friction": 0.5 },
+      "visual": { "shape": "box", "color": "#223355", "size": 6, "opacity": 0.15 }
+    },
+    {
+      "id": "wall_back",
+      "type": "rigid_body",
+      "position": [0, 0, -14],
+      "velocity": [0, 0, 0],
+      "rotation": [0, 0, 0, 1],
+      "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.1, "friction": 0.5 },
+      "visual": { "shape": "box", "color": "#1a2233", "size": 6, "opacity": 1 }
+    },
+    {
       "id": "ramp1",
       "type": "rigid_body",
-      "position": [-5, -20, 0],
+      "position": [-5, 8, 0],
       "velocity": [0, 0, 0],
-      "rotation": [0, 0, 0.2164, 0.9763],
+      "rotation": [0, 0, -0.1736, 0.9848],
       "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.2, "friction": 0.45 },
-      "visual": { "shape": "box", "color": "#2a4060", "size": 20, "opacity": 1 }
+      "visual": { "shape": "box", "color": "#2a4a6f", "size": 22, "opacity": 1 }
     },
     {
       "id": "ramp2",
       "type": "rigid_body",
-      "position": [5, -35, 0],
+      "position": [5, -5, 0],
       "velocity": [0, 0, 0],
-      "rotation": [0, 0, -0.2164, 0.9763],
+      "rotation": [0, 0, 0.1736, 0.9848],
       "properties": { "bodyType": "fixed", "mass": 0, "restitution": 0.2, "friction": 0.45 },
-      "visual": { "shape": "box", "color": "#2a4060", "size": 20, "opacity": 1 }
+      "visual": { "shape": "box", "color": "#2a4a6f", "size": 22, "opacity": 1 }
     }
   ],
   "globals": {}

@@ -1,16 +1,13 @@
 {
   "version": "1.0",
-  "metadata": {
-    "title": "Gravity & Collisions — Ball Avalanche",
-    "substrate": "particles-bodies"
-  },
+  "metadata": { "title": "Gravity & Collisions — Ball Avalanche", "substrate": "particles-bodies" },
   "engine": { "type": "rapier3d", "source_entry": "source/step.ts" },
   "renderer": {
     "type": "three",
     "dimensions": 3,
     "bounds": [100, 100, 100],
     "background": "#06080f",
-    "camera": { "position": [0, 10, 50], "fov": 50 },
+    "camera": { "position": [0, 15, 55], "fov": 50 },
     "lights": {
       "ambient": 0.5,
       "directional": [{ "position": [10, 30, 10], "intensity": 2, "castShadow": true }]
