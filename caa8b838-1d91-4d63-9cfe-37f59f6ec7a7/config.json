@@ -1,17 +1,24 @@
 {
   "version": "1.0",
-  "metadata": {
-    "title": "Gravity & Collisions — Ball Avalanche",
-    "tags": [
-      "rapier3d"
-    ]
+  "metadata": { "title": "Gravity & Collisions — Ball Avalanche", "substrate": "particles-bodies" },
+  "engine": { "type": "rapier3d", "source_entry": "source/step.ts" },
+  "renderer": { "type": "three", "dimensions": 3, "bounds": [60, 60, 60], "background": "#06080f" },
+  "simulation": { "dt": 0.016, "max_steps": null },
+  "globals": {
+    "gravity_y": -9.81,
+    "spawn_rate": 25,
+    "restitution": 0.5,
+    "friction": 0.4,
+    "ball_size": 0.8,
+    "max_balls": 300,
+    "initialized": 0
   },
-  "engine": {
-    "type": "rapier3d",
-    "source_entry": "source/step.ts"
-  },
-  "renderer": {
-    "type": "three"
-  },
-  "parameters": []
+  "parameters_ui": [
+    { "key": "gravity_y", "label": "Gravity", "min": -30, "max": -1, "step": 0.5, "group": "Physics" },
+    { "key": "restitution", "label": "Bounciness", "min": 0, "max": 1, "step": 0.05, "group": "Physics" },
+    { "key": "friction", "label": "Friction", "min": 0, "max": 1, "step": 0.05, "group": "Physics" },
+    { "key": "spawn_rate", "label": "Spawn Rate (frames)", "min": 5, "max": 120, "step": 1, "group": "Spawning" },
+    { "key": "ball_size", "label": "Ball Size", "min": 0.3, "max": 2.5, "step": 0.1, "group": "Spawning" },
+    { "key": "max_balls", "label": "Max Balls", "min": 10, "max": 500, "step": 10, "group": "Spawning" }
+  ]
 }
