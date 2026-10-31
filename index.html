@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- tplus1:collection -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tplus1-simulations · simulations</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #fafaf9; --fg: #18181b; --muted: #6b6b73; --line: #e4e4e7; --card: #fff; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0c0d10; --fg: #f4f4f5; --muted: #a1a1aa; --line: #27272a; --card: #15161a; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.55 system-ui, -apple-system, Segoe UI, sans-serif; }
+    main { max-width: 1120px; margin: 0 auto; padding: 48px 20px 64px; }
+    h1 { margin: 0 0 6px; font-size: 30px; letter-spacing: -0.02em; }
+    header p { margin: 0; color: var(--muted); }
+    header a { color: inherit; }
+    ul { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px 18px; }
+    li { display: grid; gap: 6px; }
+    .card { display: grid; gap: 6px; color: inherit; text-decoration: none; }
+    .thumb { aspect-ratio: 16 / 10; border-radius: 12px; border: 1px solid var(--line); background: #0b0d12; overflow: hidden; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .desc { color: var(--muted); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .edit { font-size: 13px; color: var(--muted); }
+    .empty { margin-top: 32px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>tplus1-simulations</h1>
+      <p>1 simulation by <a href="https://github.com/jeevanandmaurya">jeevanandmaurya</a>, made with <a href="https://www.tplus1.in">tplus1</a>. Each one is a folder you can open, read and change.</p>
+    </header>
+    <ul>
+      <li>
+        <a class="card" href="./ripple-tank/">
+          <span class="thumb"></span>
+          <strong>Ripple Tank</strong>
+          <span class="desc">The wave equation on a grid. Two coherent sources or a double slit paint interference fringes you can disturb.</span>
+        </a>
+        <a class="edit" href="https://www.tplus1.in/gh/jeevanandmaurya/tplus1-simulations/ripple-tank">Open in tplus1</a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

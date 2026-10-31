@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ripple Tank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <details class="panel" open>
+    <summary>Waves</summary>
+    <div class="buttons" id="modes">
+      <button data-mode="sources" aria-pressed="true">Two sources</button>
+      <button data-mode="slit" aria-pressed="false">Double slit</button>
+      <button data-mode="free" aria-pressed="false">Drops</button>
+    </div>
+    <label><span>Frequency <output for="freq"></output></span>
+      <input id="freq" type="range" min="0.02" max="0.25" step="0.005" value="0.11"></label>
+    <label><span>Separation <output for="sep"></output></span>
+      <input id="sep" type="range" min="0.05" max="0.6" step="0.01" value="0.22"></label>
+    <label><span>Damping <output for="damp"></output></span>
+      <input id="damp" type="range" min="0.990" max="1" step="0.0005" value="0.9985"></label>
+  </details>
+  <div class="hint" id="hint">Tap the water to drop a pebble</div>
+  <script src="main.js"></script>
+</body>
+</html>
+<script async data-explicit-opt-in="true" data-deployment-id="dpl_55yE6NRPqGhrRZww6nUDzc3oD7TR" src="https://vercel.live/_next-live/feedback/feedback.js"></script>

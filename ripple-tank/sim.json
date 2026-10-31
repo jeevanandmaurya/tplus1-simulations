@@ -1,0 +1,13 @@
+{
+  "title": "Ripple Tank",
+  "description": "The wave equation on a grid. Two coherent sources or a double slit paint interference fringes you can disturb.",
+  "tags": [
+    "waves",
+    "optics",
+    "2d",
+    "interactive"
+  ],
+  "controls": "Switch between two sources, a double slit and free drops. Tap the water to add a pebble.",
+  "author": "tplus1",
+  "order": 10
+}
